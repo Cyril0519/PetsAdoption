@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.pets.mapper.CharacterMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.pets.pojo.Template">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="character" column="character" jdbcType="VARCHAR"/>
+            <result property="options" column="options" jdbcType="VARCHAR"/>
+            <result property="required" column="required" jdbcType="TINYINT"/>
+            <result property="unit" column="unit" jdbcType="VARCHAR"/>
+            <result property="example" column="example" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,character,options,
+        required,unit,example,
+        type
+    </sql>
+</mapper>

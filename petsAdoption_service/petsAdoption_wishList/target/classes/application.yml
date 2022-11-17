@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: wish-list
+
+  datasource:
+    username: root
+    password: 20010519Smxy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_wishList?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+
+  cloud:
+    nacos:
+      server-addr: 43.142.28.107:8848
+      username: nacos
+      password: nacos
+  main:
+    allow-bean-definition-overriding:
+      true
+
+mybatis-plus:
+  configuration:
+    # 关闭自动驼峰转换
+    #    map-underscore-to-camel-case: false
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+
+server:
+  port: 8083

@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: systemgateway
+  cloud:
+    nacos:
+      server-addr: 192.168.124.6:8848
+      username: nacos
+      password: nacos
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+            - GET
+            - POST
+            - PUT
+            - DELETE
+      routes:
+      - id: goods
+        uri: lb://goods
+        predicates:
+        - Path=/goods/**
+        filters:
+        - StripPrefix=1
+        - name: RequestRateLimiter #请求数限流 名字不能随便写
+          args:
+            key-resolver: "#{@ipKeyResolver}"
+            redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充平均速率
+            redis-rate-limiter.burstCapacity: 1 #令牌桶总容量
+
+      - id: user
+        uri: lb://user
+        predicates:
+        - Path=/user/**
+        filters:
+        - name: RequestRateLimiter #请求数限流 名字不能随便写
+          args:
+            key-resolver: "#{@ipKeyResolver}"
+            redis-rate-limiter.replenishRate: 1 #令牌桶每秒填充平均速率
+            redis-rate-limiter.burstCapacity: 1 #令牌桶总容量
+
+  redis:
+    host: 192.168.124.6
+    password: '0519'
+
+server:
+  port: 9101
+

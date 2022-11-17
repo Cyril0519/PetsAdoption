@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.pets.mapper.PetsDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.pets.pojo.PetsDetail">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="petsId" column="pets_id" jdbcType="VARCHAR"/>
+        <result property="ownerId" column="owner_id" jdbcType="VARCHAR"/>
+        <result property="number" column="number" jdbcType="INTEGER"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="images" column="images" jdbcType="VARCHAR"/>
+        <result property="audited" column="audited" jdbcType="INTEGER"/>
+        <result property="postTime" column="post_time" jdbcType="TIMESTAMP"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="money" column="money" jdbcType="DECIMAL"/>
+        <result property="freight" column="freight" jdbcType="INTEGER"/>
+        <result property="allowPointsDeductions" column="allow_points_deductions" jdbcType="TINYINT"/>
+        <result property="catDesc" column="cat_desc" jdbcType="VARCHAR"/>
+        <result property="detailInfo" column="detail_info" jdbcType="VARCHAR"/>
+        <result property="weight" column="weight" jdbcType="VARCHAR"/>
+        <result property="height" column="height" jdbcType="VARCHAR"/>
+        <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+        <result property="exposure" column="exposure" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,pets_id,owner_id,
+        number,image,images,
+        audited,post_time,title,money,freight,allow_points_deductions,
+        cat_desc,detail_info,weight,height,is_deleted,exposure
+    </sql>
+    <update id="refund">
+        UPDATE t_pets_detail SET number=number+#{count} where id=#{petId}
+    </update>
+
+    <update id="deduct">
+        UPDATE t_pets_detail SET number=number-#{count} where id=#{petId}
+    </update>
+
+    <select id="getAllByOwnerId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_pets_detail
+        where
+        owner_id = #{ownerId,jdbcType=VARCHAR} and is_deleted=0
+    </select>
+    <select id="getUnauditedPet" resultType="com.petsAdoption.pets.pojo.UnauditedPet">
+        SELECT
+            pd.id,
+            p.kinds,
+            p.category,
+            u.uid ownerId,
+            u.username ownerName,
+            pd.image, pd.images,
+            pd.post_time,
+            pd.title,
+            pd.height,
+            pd.weight,
+            pd.weight,
+            pd.cat_desc,
+            pd.money,
+            pd.freight,
+            pd.allow_points_deductions,
+            pd.detail_info,
+            pd.exposure
+        from
+            petsAdoption_pets.t_pets p, petsAdoption_pets.t_pets_detail pd, petsAdoption_user.t_user u
+        where
+            p.id = pd.pets_id and pd.owner_id=u.uid AND pd.audited=0
+
+    </select>
+
+</mapper>

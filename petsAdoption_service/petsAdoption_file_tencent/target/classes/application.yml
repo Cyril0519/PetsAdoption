@@ -1,0 +1,30 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: file
+
+  servlet:
+    multipart:
+      # 最大上传文件大小
+      max-file-size: 10MB
+      # 最大请求文件大小
+      max-request-size: 10MB
+
+  cloud:
+    nacos:
+      password: naocs
+      username: nacos
+      server-addr: 43.142.28.107:8848
+
+  feign:
+    hystrix:
+      enabled: true
+
+
+COSClient:
+  secretId: AKID0ksER8rY6Tr7Af6QZXJvpibP5d51wiKl
+  secretKey: OdhZE0bprgIj04vcDi4NdAoPVWM0WH0m
+  region: ap-beijing
+  prefix: https://petsadoptoin-1313269480.cos.ap-beijing.myqcloud.com

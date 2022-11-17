@@ -1,0 +1,25 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: address
+
+  datasource:
+    password: 20010519Smxy
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_address?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+
+  cloud:
+    nacos:
+      server-addr: 43.142.28.107:8848
+      username: nacos
+      password: nacos
+
+mybatis-plus:
+  configuration:
+    # 关闭自动驼峰转换
+    #    map-underscore-to-camel-case: false
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

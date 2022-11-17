@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.pets.mapper.PetsMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.pets.pojo.Pets">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="kinds" column="kinds" jdbcType="VARCHAR"/>
+            <result property="category" column="category" jdbcType="VARCHAR"/>
+            <result property="audited" column="audited" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,kinds,category,
+        audited
+    </sql>
+    <select id="getAllKinds" resultType="java.lang.String">
+        select distinct kinds from t_pets;
+    </select>
+    <select id="getCategoryByKinds" resultType="java.lang.String">
+        select category from t_pets where kinds=#{kind};
+    </select>
+    <select id="getTemplateByKindsAndCategory" resultType="com.petsAdoption.pets.pojo.Template">
+        SELECT `id`, `character`,`options`,required,unit,example,type
+        from t_template
+        where id in
+              (SELECT template_id from t_pets_template where pets_id=
+                    (SELECT id from t_pets where kinds=#{kind} and category=#{category}))
+    </select>
+
+    <select id="getIdByKindsAndCategory" resultType="java.lang.String">
+        select id
+        from t_pets
+        where kinds = #{kinds,jdbcType=VARCHAR}
+          AND category = #{category,jdbcType=VARCHAR}
+    </select>
+</mapper>

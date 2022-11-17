@@ -1,0 +1,38 @@
+server:
+  port: 8084
+
+spring:
+  rabbitmq:
+    host: 43.142.28.107
+    username: admin
+    password: admin
+    virtual-host: my_vhost
+
+  application:
+    name: search
+
+
+  elasticsearch:
+    rest:
+      uris: 43.142.28.107
+      username: elastic
+      password: elastic
+
+  datasource:
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_pets?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    password: 20010519Smxy
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    nacos:
+      server-addr: http://43.142.28.107:8848
+      username: nacos
+      password: nacos
+
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 30000
+        conconnectTimeout: 30000

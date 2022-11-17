@@ -1,0 +1,37 @@
+server:
+  port: 9200
+spring:
+  application:
+    name: user-auth
+  redis:
+    host: 43.142.28.107
+    port: 6379
+    password: '0519'
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_user?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 20010519Smxy
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      server-addr: 43.142.28.107:8848
+
+auth:
+  ttl: 3600  #token存储到redis的过期时间  一小时
+  clientId: petsAdoption
+  clientSecret: petsAdoption
+  cookieDomain: localhost
+  cookieMaxAge: 3600
+encrypt:
+  key-store:
+    location: classpath:/petsAdoption.jks
+    secret: petsAdoption
+    alias: petsAdoption
+    password: petsAdoption

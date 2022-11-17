@@ -1,0 +1,86 @@
+spring:
+  application:
+    name: gateway-web
+  cloud:
+    nacos:
+      server-addr: 43.142.28.107:8848
+    gateway:
+      routes:
+        - id: petsAdoption_user_route
+          uri: lb://user
+          predicates:
+            - Path=/api/user/**,/api/address/**,/api/areas/**,/api/cities/**,/api/provinces/**
+          filters:
+            - StripPrefix=1
+          #认证微服务
+        - id: petsAdoption_oauth_user_route
+          uri: lb://user-auth
+          predicates:
+            - Path=/api/oauth/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsADoption_pets_toute
+          uri: lb://pets
+          predicates:
+            - Path=/api/petDetail/**, /api/pets/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_file_route
+          uri: lb://file
+          predicates:
+            - Path=/api/file/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_wishList_route
+          uri: lb://wish-list
+          predicates:
+            - Path=/api/wishList/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_search_route
+          uri: lb://search
+          predicates:
+            - Path=/api/search/**,/api/manager/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_address_route
+          uri: lb://address
+          predicates:
+            - Path=/api/region/**, /api/shopping_address/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_order_router
+          uri: lb://order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=1
+
+        - id: petsAdoption_business_router
+          uri: lb://business
+          predicates:
+            - Path=/api/ad/**
+          filters:
+            - StripPrefix=1
+
+
+  redis:
+    host: 43.142.28.107
+    password: '0519'
+
+server:
+  port: 8001
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+    web:
+      exposure:
+        include: true

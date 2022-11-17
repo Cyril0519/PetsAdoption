@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.user.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.user.pojo.User">
+            <id property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="authority" column="authority" jdbcType="VARCHAR"/>
+            <result property="money" column="money" jdbcType="DECIMAL"/>
+            <result property="rewardsPoints" column="rewards_points" jdbcType="INTEGER"/>
+            <result property="registerDate" column="register_date" jdbcType="DATE"/>
+            <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+            <result property="isAccountExpire" column="is_account_expire" jdbcType="INTEGER"/>
+            <result property="isAccountLocked" column="is_account_locked" jdbcType="INTEGER"/>
+            <result property="isEnabled" column="is_enabled" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,username,password,
+        gender,phone,address,
+        email,authority,money,rewards_points,is_delete,is_account_expire,
+        is_account_locked,is_enabled
+    </sql>
+    <update id="updateMoneyByUid">
+        update t_user
+        set money = money - #{money}
+        where uid = #{uid,jdbcType=VARCHAR} and money-#{money}>0
+    </update>
+</mapper>

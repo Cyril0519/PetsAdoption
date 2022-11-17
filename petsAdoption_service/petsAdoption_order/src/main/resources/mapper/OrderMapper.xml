@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.order.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.order.pojo.Order">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="petId" column="pet_id" jdbcType="VARCHAR"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="buildDate" column="build_date" jdbcType="TIMESTAMP"/>
+            <result property="addressId" column="address_id" jdbcType="VARCHAR"/>
+            <result property="count" column="count" jdbcType="INTEGER"/>
+            <result property="totalMoney" column="total_money" jdbcType="DECIMAL"/>
+            <result property="concessionsMoney" column="concessions_money" jdbcType="DECIMAL"/>
+            <result property="rewordsPointsDeductions" column="rewords_points_deductions" jdbcType="DECIMAL"/>
+            <result property="freight" column="freight" jdbcType="INTEGER"/>
+            <result property="payMoney" column="pay_money" jdbcType="DECIMAL"/>
+            <result property="payDate" column="pay_date" jdbcType="TIMESTAMP"/>
+            <result property="received" column="received" jdbcType="TINYINT"/>
+            <result property="finished" column="finished" jdbcType="TINYINT"/>
+            <result property="rewardsPoints" column="rewards_points" jdbcType="INTEGER"/>
+            <result property="score" column="score" jdbcType="TINYINT"/>
+            <result property="comment" column="comment" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,pet_id,uid,
+        build_date,address_id,count,
+        total_money,concessions_money,rewords_points_deductions,
+        freight,pay_money,pay_date,
+        received,finished,rewards_points,
+        score,comment
+    </sql>
+</mapper>

@@ -1,0 +1,18 @@
+server:
+  port: 8089
+
+spring:
+  cloud:
+    nacos:
+      password: naocs
+      username: nacos
+      server-addr: 43.142.28.107:8848
+  application:
+    name: business
+
+  datasource:
+    password: 20010519Smxy
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_business?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+

@@ -1,0 +1,13 @@
+server:
+
+  port: 9101
+
+spring:
+
+  profiles:
+
+    active: redis
+
+  application:
+
+    name: gateway

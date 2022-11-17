@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.user.mapper.MoneyFreezeMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.user.pojo.MoneyFreeze">
+            <id property="xid" column="xid" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="freezeMoney" column="freeze_money" jdbcType="DECIMAL"/>
+            <result property="state" column="state" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        xid,user_id,freeze_money,
+        state
+    </sql>
+</mapper>

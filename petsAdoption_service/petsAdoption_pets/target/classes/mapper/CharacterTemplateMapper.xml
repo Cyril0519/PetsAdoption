@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.pets.mapper.CharacterTemplateMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.pets.pojo.PetsTemplate">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="petsId" column="pets_id" jdbcType="INTEGER"/>
+            <result property="characterId" column="character_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,pets_id,character_id
+    </sql>
+</mapper>

@@ -1,0 +1,67 @@
+server:
+  port: 8081
+
+spring:
+  resources:
+    static-locations: classpath:/static
+
+  datasource:
+    username: root
+    password: 20010519Smxy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_user?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+
+  application:
+    name: user
+
+  cloud:
+    nacos:
+      server-addr: 43.142.28.107:8848
+      username: nacos
+      password: nacos
+    alibaba:
+      seata:
+        tx-service-group: default_tx_group
+
+  redis:
+    password: '0519'
+    host: 43.142.28.107
+
+
+mybatis-plus:
+  configuration:
+    # 关闭自动驼峰转换
+#    map-underscore-to-camel-case: false
+      # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+
+seata:
+  # seata注册中心
+  registry:
+    type: nacos
+    # 所在地址
+    nacos:
+      server-addr: 43.142.28.107:8848
+      username: nacos
+      password: nacos
+      application: seata-server  # 应用名称
+      group: SEATA_GROUP   # 应用组名
+  # seata配置中心
+  config:
+    type: nacos
+    nacos:
+      server-addr: 43.142.28.107:8848
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+feign:
+  client:
+    config:
+      default:
+        readTimeout: 30000
+        conconnectTimeout: 30000

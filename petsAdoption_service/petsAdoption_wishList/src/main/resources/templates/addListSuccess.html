@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>添加成功</title>
+</head>
+<style>
+  img{
+    width: 10rem;
+    height: 10rem;
+  }
+  .cart{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    padding: 1rem;
+    width: 95%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #00fff7;
+    margin: 0 auto;
+    background-color: #e0fffe;
+  }
+
+  .right{
+    float: right;
+    margin-left: 3rem;
+    position: relative;
+  }
+
+  .left{
+    float: left;
+  }
+  .title{
+    margin-top: 0;
+    text-align: center;
+    color: #ffce5a;
+  }
+  .tip{
+    bottom: 0;
+    position: absolute;
+  }
+</style>
+<body>
+  <h2 class="title">添加成功</h2>
+  <div class="cart">
+    <img class="left" th:src="${pet.imgUrl}" alt="">
+    <div class="right">
+      <h3 class="title" th:text="${pet.title}"></h3>
+      <div class="tip">
+        <a href="#">查看心愿单</a>
+        <a href="http://localhost:8080">继续浏览</a>
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>

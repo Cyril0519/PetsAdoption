@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.petsAdoption.pets.mapper.PetFrezzeMapper">
+
+    <resultMap id="BaseResultMap" type="com.petsAdoption.pets.pojo.PetFrezze">
+            <id property="xid" column="xid" jdbcType="VARCHAR"/>
+            <result property="petId" column="pet_id" jdbcType="VARCHAR"/>
+            <result property="petCount" column="pet_count" jdbcType="INTEGER"/>
+            <result property="state" column="state" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        xid,pet_id,pet_count,
+        state
+    </sql>
+
+</mapper>
