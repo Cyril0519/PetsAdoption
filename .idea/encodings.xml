@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/petsAdoption_canal/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_common_db/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_common_db/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/petsAdoption_gateway_system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/petsAdoption_gateway_system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/petsAdoption_gateway_web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/petsAdoption_gateway_web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_oauth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_oauth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/PetsAdoption_User/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/PetsAdoption_User/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_address/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_bussiness/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_file/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_file/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_file_tencent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_pets/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_pets/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_wishList/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/petsAdoption_wishList/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petAdoption_wishList_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petAdoption_wishList_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_address_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_address_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_business_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_order_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_pets_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_pets_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_search_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_search_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_user_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/petsAdoption_user_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/petsAdoption_service_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

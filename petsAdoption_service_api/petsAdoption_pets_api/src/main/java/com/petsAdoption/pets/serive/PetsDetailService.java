@@ -1,4 +1,4 @@
-package com.petsAdoption.pets.service;
+package com.petsAdoption.pets.serive;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.petsAdoption.pets.pojo.PetsDetail;

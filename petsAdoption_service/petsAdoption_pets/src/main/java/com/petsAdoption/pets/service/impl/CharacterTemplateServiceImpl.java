@@ -2,8 +2,9 @@ package com.petsAdoption.pets.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.petsAdoption.pets.pojo.PetsTemplate;
-import com.petsAdoption.pets.service.CharacterTemplateService;
+import com.petsAdoption.pets.serive.CharacterTemplateService;
 import com.petsAdoption.pets.mapper.CharacterTemplateMapper;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 * @createDate 2022-09-25 08:48:49
 */
 @Service
+@DubboService
 public class CharacterTemplateServiceImpl extends ServiceImpl<CharacterTemplateMapper, PetsTemplate>
     implements CharacterTemplateService{
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="petsAdoption_file_tencent" />
+        <module name="petsAdoption_order_api" />
+        <module name="petsAdoption_oauth" />
+        <module name="petsAdoption_common" />
+        <module name="petsAdoption_search" />
+        <module name="petsAdoption_pets_api" />
+        <module name="petsAdoption_gateway_system" />
+        <module name="petsAdoption_wishList" />
+        <module name="petsAdoption_order" />
+        <module name="petsAdoption_pets" />
+        <module name="petsAdoption_canal" />
+        <module name="petsAdoption_address_api" />
+        <module name="PetsAdoption_User" />
+        <module name="petsAdoption_search_api" />
+        <module name="petsAdoption_gateway_web" />
+        <module name="petsAdoption_user_api" />
+        <module name="petAdoption_wishList_api" />
+        <module name="petsAdoption_bussiness" />
+        <module name="petsAdoption_business_api" />
+        <module name="petsAdoption_file" />
+        <module name="petsAdoption_address" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="petsAdoption_globalErrorHandler" target="8" />
+      <module name="petsAdoption_pets_detail" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PetsAdoption_User" options="-parameters" />
+      <module name="petAdoption_wishList_api" options="-parameters" />
+      <module name="petsAdoption" options="-parameters" />
+      <module name="petsAdoption_address" options="-parameters" />
+      <module name="petsAdoption_address_api" options="-parameters" />
+      <module name="petsAdoption_business_api" options="-parameters" />
+      <module name="petsAdoption_bussiness" options="-parameters" />
+      <module name="petsAdoption_canal" options="-parameters" />
+      <module name="petsAdoption_common" options="-parameters" />
+      <module name="petsAdoption_common_db" options="" />
+      <module name="petsAdoption_file" options="-parameters" />
+      <module name="petsAdoption_file_tencent" options="-parameters" />
+      <module name="petsAdoption_gateway" options="" />
+      <module name="petsAdoption_gateway_system" options="-parameters" />
+      <module name="petsAdoption_gateway_web" options="-parameters" />
+      <module name="petsAdoption_globalErrorHandler" options="-parameters" />
+      <module name="petsAdoption_oauth" options="-parameters" />
+      <module name="petsAdoption_order" options="-parameters" />
+      <module name="petsAdoption_order_api" options="-parameters" />
+      <module name="petsAdoption_pets" options="-parameters" />
+      <module name="petsAdoption_pets_api" options="-parameters" />
+      <module name="petsAdoption_pets_detail" options="-parameters" />
+      <module name="petsAdoption_search" options="-parameters" />
+      <module name="petsAdoption_search_api" options="-parameters" />
+      <module name="petsAdoption_service" options="" />
+      <module name="petsAdoption_service_api" options="" />
+      <module name="petsAdoption_user_api" options="-parameters" />
+      <module name="petsAdoption_wishList" options="-parameters" />
+    </option>
+  </component>
+</project>

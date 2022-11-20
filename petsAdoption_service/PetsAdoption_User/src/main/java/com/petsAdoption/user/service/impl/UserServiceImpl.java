@@ -1,21 +1,18 @@
 package com.petsAdoption.user.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.petsAdoption.user.pojo.User;
-import com.petsAdoption.user.service.UserService;
+import com.petsAdoption.user.serivce.UserService;
 import com.petsAdoption.user.mapper.UserMapper;
-import com.sun.org.apache.regexp.internal.REUtil;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
 * @author wuxingyu
@@ -23,6 +20,7 @@ import java.util.Map;
 * @createDate 2022-08-22 21:04:46
 */
 @Service
+@DubboService
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService{
 

@@ -1,22 +1,17 @@
 package com.petsAdoption.pets.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.petsAdoption.pets.pojo.Pets;
 import com.petsAdoption.pets.pojo.Template;
-import com.petsAdoption.pets.service.PetsService;
+import com.petsAdoption.pets.serive.PetsService;
 import com.petsAdoption.pojo.Result;
 import com.petsAdoption.pojo.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.env.SpringApplicationJsonEnvironmentPostProcessor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.temporal.Temporal;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/pets")

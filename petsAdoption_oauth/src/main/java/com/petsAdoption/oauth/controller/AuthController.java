@@ -4,17 +4,16 @@ package com.petsAdoption.oauth.controller;
 import com.google.code.kaptcha.Producer;
 import com.petsAdoption.oauth.service.AuthService;
 import com.petsAdoption.oauth.util.AuthToken;
-import com.petsAdoption.oauth.util.CheckCaptchaCorrectness;
 import com.petsAdoption.oauth.util.CookieUtil;
 import com.petsAdoption.pojo.Result;
 import com.petsAdoption.pojo.ResultCode;
-import com.petsAdoption.user.feign.UserFeign;
 import com.petsAdoption.user.pojo.User;
+import com.petsAdoption.user.serivce.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,8 +41,8 @@ public class AuthController {
     private StringRedisTemplate redisTemplate;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private UserFeign userFeign;
+    @DubboReference
+    private UserService userService;
 
     @Value("${auth.clientId}")
     private String clientId;
@@ -136,7 +135,7 @@ public class AuthController {
         user.setRegisterDate(date);
         user.setAuthority("normal");
         user.setCaringIndex(new BigDecimal(0));
-        boolean flag = userFeign.add(user).isFlag();
+        boolean flag = userService.save(user);
         if(flag){
             // 注册成功
             try {

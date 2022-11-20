@@ -41,6 +41,10 @@
             <version>1.2.73</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
 
         <!--        mq-->
 <!--        <dependency>-->

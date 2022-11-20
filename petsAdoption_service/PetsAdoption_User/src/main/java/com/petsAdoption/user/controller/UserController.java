@@ -1,8 +1,5 @@
 package com.petsAdoption.user.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.petsAdoption.pojo.Result;
 import com.petsAdoption.pojo.ResultCode;
@@ -10,12 +7,11 @@ import com.petsAdoption.pojo.ResultCode;
 import com.petsAdoption.user.config.TokenDecode;
 import com.petsAdoption.user.pojo.User;
 import com.petsAdoption.user.service.MoneyFreezeService;
-import com.petsAdoption.user.service.UserService;
+import com.petsAdoption.user.serivce.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.petsAdoption.user.service;
+package com.petsAdoption.user.serivce;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.petsAdoption.user.pojo.User;

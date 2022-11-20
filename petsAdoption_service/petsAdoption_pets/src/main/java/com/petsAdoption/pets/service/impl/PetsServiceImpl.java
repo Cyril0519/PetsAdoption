@@ -3,8 +3,9 @@ package com.petsAdoption.pets.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.petsAdoption.pets.pojo.Pets;
 import com.petsAdoption.pets.pojo.Template;
-import com.petsAdoption.pets.service.PetsService;
+import com.petsAdoption.pets.serive.PetsService;
 import com.petsAdoption.pets.mapper.PetsMapper;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @createDate 2022-09-25 08:48:31
  */
 @Service
+@DubboService
 public class PetsServiceImpl extends ServiceImpl<PetsMapper, Pets> implements PetsService {
     @Autowired
     private PetsMapper petsMapper;

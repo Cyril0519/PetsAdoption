@@ -1,23 +1,24 @@
 package com.petsAdoption.wishList.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.petsAdoption.pets.feign.PetsFeign;
 import com.petsAdoption.pets.pojo.PetsDetail;
+import com.petsAdoption.pets.serive.PetsDetailService;
+import com.petsAdoption.pojo.Result;
+import com.petsAdoption.pojo.ResultCode;
+import com.petsAdoption.wishList.config.TokenDecode;
 import com.petsAdoption.wishList.pojo.WishList;
-import com.petsAdoption.wishList.service.WishListService;
 import com.petsAdoption.wishList.mapper.WishListMapper;
+import com.petsAdoption.wishList.service.WishListService;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
 * @author wuxingyu
@@ -25,11 +26,16 @@ import java.util.Map;
 * @createDate 2022-09-05 16:20:58
 */
 @Service
-public class WishListServiceImpl extends ServiceImpl<WishListMapper, WishList> implements WishListService{
+@DubboService
+public class WishListServiceImpl extends ServiceImpl<WishListMapper, WishList> implements WishListService {
     @Autowired
     private WishListMapper wishListMapper;
     @Autowired
-    private PetsFeign petsFeign;
+    private TokenDecode tokenDecode;
+
+    @DubboReference
+    private PetsDetailService petsDetailService;
+
 
     @Override
     public List<WishList> getAllByUid(String uid) {
@@ -43,12 +49,46 @@ public class WishListServiceImpl extends ServiceImpl<WishListMapper, WishList> i
 
         for (int i = 0; i < wishListPage.getRecords().size(); i++) {
             String petId = wishListPage.getRecords().get(i).getPetId();
-            PetsDetail petsDetail = petsFeign.getById(petId).getData().get(0);
+            PetsDetail petsDetail = petsDetailService.getById(petId);
             HashMap<String, Object> petsInfo = new HashMap<>();
             petsInfo.put("petsDetail", petsDetail);
             wishListPage.getRecords().get(i).setExtendField(petsInfo);
         }
         return wishListPage;
+    }
+
+    @Override
+    public void add(String petId, Integer selectNumber) {
+
+        // 判断是否符合条件
+        PetsDetail pet = petsDetailService.getById(petId);
+        if(pet == null){
+            throw new RuntimeException("宠物不存在");
+        }
+        Integer number = pet.getNumber();  // 剩余数量
+
+        if(selectNumber > number){
+            throw new RuntimeException("剩余数量不足");
+        }
+
+        WishList wishList = new WishList();
+
+        // 获取用户id
+        String uid = tokenDecode.getUserInfo().get("id");
+//        设置用户id
+        wishList.setUid(uid);
+//        宠物id
+        wishList.setPetId(petId);
+        Date date = new Date();
+        wishList.setSelectDate(date);
+        wishList.setSelectNumber(selectNumber);
+
+        this.save(wishList);
+//        减库存
+        PetsDetail petsDetail = new PetsDetail();
+        petsDetail.setNumber(number - selectNumber);
+        petsDetail.setId(petId);
+        petsDetailService.updatePets(petsDetail);
     }
 }
 

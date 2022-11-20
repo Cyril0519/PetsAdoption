@@ -1,8 +1,8 @@
 package com.petsAdoption.wishList.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.petsAdoption.wishList.pojo.WishList;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.petsAdoption.wishList.pojo.WishList;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -16,4 +16,8 @@ public interface WishListService extends IService<WishList> {
     List<WishList> getAllByUid(@Param("uid") String uid);
 
     Page<WishList>  findUserWishListPage(int current, int size, String uid);
+
+
+    void add(String petId, Integer selectNumber);
+
 }

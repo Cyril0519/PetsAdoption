@@ -1,24 +1,18 @@
 package com.petsAdoption.pets.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.petsAdoption.pets.config.TokenDecode;
-import com.petsAdoption.pets.pojo.PetFrezze;
 import com.petsAdoption.pets.pojo.PetsDetail;
 import com.petsAdoption.pets.pojo.UnauditedPet;
 import com.petsAdoption.pets.service.PetFrezzeService;
-import com.petsAdoption.pets.service.PetsDetailService;
+import com.petsAdoption.pets.serive.PetsDetailService;
 import com.petsAdoption.pojo.Result;
 import com.petsAdoption.pojo.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 
 @RestController
 @RequestMapping("/petDetail")

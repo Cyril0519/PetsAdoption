@@ -2,11 +2,12 @@ package com.petsAdoption.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.petsAdoption.user.pojo.MoneyFreeze;
-import com.petsAdoption.user.service.MoneyFreezeService;
 import com.petsAdoption.user.mapper.MoneyFreezeMapper;
-import com.petsAdoption.user.service.UserService;
+import com.petsAdoption.user.serivce.UserService;
+import com.petsAdoption.user.service.MoneyFreezeService;
 import io.seata.core.context.RootContext;
 import io.seata.rm.tcc.api.BusinessActionContext;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

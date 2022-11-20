@@ -2,7 +2,8 @@ package com.petsAdoption.oauth.config;
 
 import com.petsAdoption.oauth.util.UserJwt;
 import com.petsAdoption.pojo.Result;
-import com.petsAdoption.user.feign.UserFeign;
+import com.petsAdoption.user.serivce.UserService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -24,8 +25,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     ClientDetailsService clientDetailsService;
-    @Autowired
-    private UserFeign userFeign;
+    @DubboReference
+    private UserService userService;
 
     /****
      * 自定义授权认证
@@ -55,7 +56,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         //根据用户名查询用户信息
-        com.petsAdoption.user.pojo.User userInfo = userFeign.queryByUsername(username).getData();// 用户服务已经添加了保护，会出现401
+        com.petsAdoption.user.pojo.User userInfo = userService.queryByUsername(username);// 用户服务已经添加了保护，会出现401
         if (userInfo == null) {
             throw new UsernameNotFoundException("用户名不存在");
         }

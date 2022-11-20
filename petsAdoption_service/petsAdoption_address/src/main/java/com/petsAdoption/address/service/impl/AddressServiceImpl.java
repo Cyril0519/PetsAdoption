@@ -10,6 +10,7 @@ import com.petsAdoption.address.service.AddressService;
 import com.petsAdoption.address.mapper.ShoppingAddressMapper;
 import com.petsAdoption.address.service.RegionService;
 import com.petsAdoption.address.utils.TokenDecode;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ import java.util.Map;
 * @createDate 2022-10-15 16:07:55
 */
 @Service
+@DubboService
 public class AddressServiceImpl extends ServiceImpl<ShoppingAddressMapper, ShoppingAddress>
     implements AddressService{
     @Autowired

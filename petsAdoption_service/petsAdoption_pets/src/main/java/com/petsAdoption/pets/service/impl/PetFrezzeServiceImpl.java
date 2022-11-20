@@ -1,13 +1,13 @@
 package com.petsAdoption.pets.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.petsAdoption.pets.mapper.PetsDetailMapper;
 import com.petsAdoption.pets.pojo.PetFrezze;
 import com.petsAdoption.pets.service.PetFrezzeService;
 import com.petsAdoption.pets.mapper.PetFrezzeMapper;
-import com.petsAdoption.pets.service.PetsDetailService;
+import com.petsAdoption.pets.serive.PetsDetailService;
 import io.seata.core.context.RootContext;
 import io.seata.rm.tcc.api.BusinessActionContext;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

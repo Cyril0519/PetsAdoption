@@ -1,12 +1,16 @@
 package com.petsAdoption.search.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.petsAdoption.pets.feign.PetsFeign;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.petsAdoption.pets.pojo.Pets;
 import com.petsAdoption.pets.pojo.PetsDetail;
+import com.petsAdoption.pets.serive.PetsDetailService;
+import com.petsAdoption.pets.serive.PetsService;
 import com.petsAdoption.search.mapper.ESManagerMapper;
 import com.petsAdoption.search.pojo.PetsInfo;
 import com.petsAdoption.search.service.ESManagerService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.stereotype.Service;
@@ -21,8 +25,11 @@ import static com.alibaba.fastjson.JSON.parseObject;
 public class ESManagerServiceImpl implements ESManagerService {
     @Autowired
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
-    @Autowired
-    private PetsFeign petsFeign;
+
+    @DubboReference
+    private PetsDetailService petsDetailService;
+    @DubboReference
+    private PetsService petsService;
     @Autowired
     private ESManagerMapper esManagerMapper;
 
@@ -48,7 +55,7 @@ public class ESManagerServiceImpl implements ESManagerService {
      */
     @Override
     public void importAll() {
-        List<PetsDetail> petsDetailList = petsFeign.getById("all").getData();
+        List<PetsDetail> petsDetailList = petsDetailService.list(null);
         if (petsDetailList == null || petsDetailList.size() <= 0) {
             throw new RuntimeException("没有数据被查询到，无法导入索引库");
         }
@@ -57,11 +64,9 @@ public class ESManagerServiceImpl implements ESManagerService {
 
     @Override
     public void importDataByPetsId(String petId) {
-        List<PetsDetail> petsDetailList = petsFeign.getById(petId).getData();
-
-        if (petsDetailList == null || petsDetailList.size() == 0) {
-            throw new RuntimeException("没有数据被查询到，无法导入索引库");
-        }
+        QueryWrapper<PetsDetail> wrapper = new QueryWrapper<>();
+        wrapper.eq("id", petId);
+        List<PetsDetail> petsDetailList = petsDetailService.list(wrapper);
 
         this.saveDataByList(petsDetailList);
     }
@@ -76,7 +81,7 @@ public class ESManagerServiceImpl implements ESManagerService {
         List<PetsInfo> petsInfos = JSON.parseArray(jsonString, PetsInfo.class);
         for (PetsInfo petsInfo : petsInfos) {
             String petsId = petsInfo.getPetsId();
-            Pets pets = petsFeign.getPetsById(petsId).getData();  // 获取其所属的类
+            Pets pets = petsService.getById(petsId);  // 获取其所属的类
             assert pets !=null;  // 查询不是空
 
             String detailInfo = petsInfo.getDetailInfo();
@@ -89,7 +94,4 @@ public class ESManagerServiceImpl implements ESManagerService {
         esManagerMapper.saveAll(petsInfos);
     }
 
-    // public void update(PetsInfo petsInfo) {
-    //     elasticsearchRestTemplate.update()
-    // }
 }

@@ -18,9 +18,9 @@ public interface OrderService extends IService<Order> {
 
     List<DetailOrder> getToPayList();
 
-    List<DetailOrder> getTravelList();
-
     List<DetailOrder> getFinishedList();
 
     Order confirmReceipt(String orderId);
+
+    List<DetailOrder> getToReceiveList();
 }

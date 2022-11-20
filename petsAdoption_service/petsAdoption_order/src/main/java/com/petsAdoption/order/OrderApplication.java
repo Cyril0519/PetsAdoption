@@ -1,5 +1,6 @@
 package com.petsAdoption.order;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.petsAdoption.user.feign","com.petsAdoption.pets.feign"})
+@EnableDubbo
 @EnableResourceServer
 public class OrderApplication {
     public static void main(String[] args) {

@@ -60,9 +60,9 @@ public class OrderController {
     }
 
     // 获取运送中的
-    @GetMapping("/getTravelList")
-    public Result<List<DetailOrder>> getTravelList(){
-        List<DetailOrder> res = orderService.getTravelList();
+    @GetMapping("/getToReceiveList")
+    public Result<List<DetailOrder>> getToReceiveList(){
+        List<DetailOrder> res = orderService.getToReceiveList();
         return new Result<>(true, ResultCode.OK, "查询成功", res);
     }
 
