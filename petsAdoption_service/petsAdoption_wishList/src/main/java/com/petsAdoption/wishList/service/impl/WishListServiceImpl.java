@@ -57,7 +57,6 @@ public class WishListServiceImpl extends ServiceImpl<WishListMapper, WishList> i
         return wishListPage;
     }
 
-    @Override
     public void add(String petId, Integer selectNumber) {
 
         // 判断是否符合条件

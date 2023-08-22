@@ -40,6 +40,7 @@
             <groupId>com.petsAdoption</groupId>
             <artifactId>petsAdoption_common_db</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <type>pom</type>
         </dependency>
 
 <!--        api-->
@@ -75,6 +76,22 @@
 
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 

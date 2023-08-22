@@ -1,0 +1,4 @@
+com\petsAdoption\webGateway\filter\AuthFilter.class
+com\petsAdoption\webGateway\config\CorsConfig.class
+com\petsAdoption\webGateway\WebGatewayApplication.class
+com\petsAdoption\webGateway\service\AuthService.class

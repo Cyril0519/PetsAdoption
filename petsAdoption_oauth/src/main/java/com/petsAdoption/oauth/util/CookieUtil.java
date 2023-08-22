@@ -18,13 +18,13 @@ public class CookieUtil {
      * @param value    cookie值
      * @param maxAge   cookie生命周期 以秒为单位
      */
-    public static void addCookie(HttpServletResponse response, String domain, String path, String name,
+    public static void addCookie(HttpServletResponse response, String path, String name,
                                  String value, int maxAge, boolean httpOnly) {
         Cookie cookie = new Cookie(name, value);
-        cookie.setDomain(domain);
         cookie.setPath(path);
         cookie.setMaxAge(maxAge);
         cookie.setHttpOnly(httpOnly);
+        cookie.setDomain("43.143.254.110");
         response.addCookie(cookie);
     }
 

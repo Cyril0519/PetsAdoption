@@ -56,6 +56,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
         clients.jdbc(dataSource).clients(clientDetails());
     }
 
+
     /***
      * 授权服务器端点配置
      * @param endpoints

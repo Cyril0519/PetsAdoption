@@ -3,7 +3,7 @@ server:
 
 spring:
   rabbitmq:
-    host: 43.142.28.107
+    host: 192.168.124.71
     username: admin
     password: admin
     virtual-host: my_vhost
@@ -14,19 +14,19 @@ spring:
 
   elasticsearch:
     rest:
-      uris: 43.142.28.107
+      uris: 192.168.124.71
       username: elastic
       password: elastic
 
   datasource:
-    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_pets?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
-    password: 20010519Smxy
+    url: jdbc:mysql://192.168.124.71:3306/petsAdoption_pets?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    password: w0519
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   cloud:
     nacos:
-      server-addr: http://43.142.28.107:8848
+      server-addr: http://192.168.124.71:8848
       username: nacos
       password: nacos
 
@@ -37,7 +37,7 @@ dubbo:
   registry:
     #dubbo服务注册端口，注册中心服务器地址，如果地址没有端口缺省为9090，同一集群内的多个地址用逗号分隔，如：ip:port,ip:port
     #其中前缀spring-cloud说明：挂载到 Spring Cloud注册中心
-    address: spring-cloud://43.142.28.107:8848
+    address: spring-cloud://192.168.124.71:8848
   cloud:
     subscribed-services: pets  # 订阅的提供者名称
   consumer:

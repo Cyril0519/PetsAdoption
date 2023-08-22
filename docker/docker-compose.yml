@@ -1,0 +1,184 @@
+version: '3'
+
+services:
+
+  pet-auth:
+    image: pet-auth:1.0.0
+    container_name: pet-auth
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "9201:9201"
+    volumes:
+      # 配置文件
+      - /pet/pet-auth/logs/:/pet/oauth/logs
+    network_mode: "pet-net"
+
+  pet-web-gateway:
+    image: pet-web-gateway:1.0.0
+    container_name: pet-web-gateway
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8001:8001"
+    volumes:
+      # 配置文件
+      - /pet/pet-web-gateway/logs/:/pet/pet-web-gateway/logs
+    network_mode: "pet-net"
+
+
+  pet-address:
+    image: pet-address:1.0.0
+    container_name: pet-address
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8088:8088"
+    volumes:
+      # 配置文件
+      - /pet/pet-address/logs/:/pet/pet-address/logs
+    network_mode: "pet-net"
+
+  pet-bussiness:
+    image: pet-bussiness:1.0.0
+    container_name: pet-bussiness
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8089:8089"
+    volumes:
+      # 配置文件
+      - /pet/pet-bussiness/logs/:/pet/pet-bussiness/logs
+    network_mode: "pet-net"
+
+  pet-file:
+    image: pet-file:1.0.0
+    container_name: pet-file
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "9008:9008"
+    volumes:
+      # 配置文件
+      - /pet/pet-file/logs/:/pet/pet-file/logs
+    network_mode: "pet-net"
+
+  pet-order:
+    image: pet-order:1.0.0
+    container_name: pet-order
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8086:8086"
+    volumes:
+      # 配置文件
+      - /pet/pet-order/logs/:/pet/pet-order/logs
+    network_mode: "pet-net"
+
+  pet-pets:
+    image: pet-pets:1.0.0
+    container_name: pet-pets
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8182:8182"
+    volumes:
+      # 配置文件
+      - /pet/pet-pets/logs/:/pet/pet-pets/logs
+    network_mode: "pet-net"
+
+  pet-search:
+    image: pet-search:1.0.0
+    container_name: pet-search
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8084:8084"
+    volumes:
+      # 配置文件
+      - /pet/pet-search/logs/:/pet/pet-search/logs
+    network_mode: "pet-net"
+
+  pet-user:
+    image: pet-user:1.0.0
+    container_name: pet-user
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8081:8081"
+    volumes:
+      # 配置文件
+      - /pet/pet-user/logs/:/pet/pet-user/logs
+    network_mode: "pet-net"
+
+  pet-wishlist:
+    image: pet-wishlist:1.0.0
+    container_name: pet-wishlist
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+    ports:
+      - "8083:8083"
+    volumes:
+      # 配置文件
+      - /pet/pet-wishlist/logs/:/pet/pet-wishlist/logs
+    network_mode: "pet-net"
+
+  elasticsearch:
+    image: elasticsearch:7.17.6
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      # 设置集群名称
+      cluster.name: elasticsearch
+      # 以单一节点模式启动
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    volumes:
+      - /pet/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      - /pet/elk/elasticsearch/data:/usr/share/elasticsearch/data
+      - /pet/elk/elasticsearch/logs:/usr/share/elasticsearch/logs
+    network_mode: "pet-net"
+
+  kibana:
+    image: kibana:7.17.6
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      # kibana在elasticsearch启动之后再启动
+      - elasticsearch
+    environment:
+      #设置系统语言文中文
+      I18N_LOCALE: zh-CN
+      # 访问域名
+      # SERVER_PUBLICBASEURL: https://kibana.cloud.com
+    volumes:
+      - /pet/elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    network_mode: "pet-net"
+
+
+  rabbitmq:
+    image: rabbitmq:3.10.6
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: iep
+      RABBITMQ_DEFAULT_PASS: iep123123
+    ports:
+      - "15672:15672" # 管理界面端口
+      - "5672:5672"   # api 端口
+    volumes:
+      - /pet/rabbitmq/log:/var/log/rabbitmq
+      - /pet/rabbitmq/data:/var/lib/rabbitmq
+    network_mode: "pet-net"

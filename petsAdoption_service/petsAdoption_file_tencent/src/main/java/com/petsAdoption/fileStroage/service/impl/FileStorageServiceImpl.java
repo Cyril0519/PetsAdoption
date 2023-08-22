@@ -3,18 +3,12 @@ package com.petsAdoption.fileStroage.service.impl;
 import com.petsAdoption.fileStroage.service.FileStorageService;
 import com.petsAdoption.fileStroage.utils.FileNameCreator;
 import com.qcloud.cos.COSClient;
-import com.qcloud.cos.model.ObjectMetadata;
 import com.qcloud.cos.model.PutObjectRequest;
-import com.qcloud.cos.model.PutObjectResult;
-import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.jnlp.FileSaveService;
-import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 @Service
 public class FileStorageServiceImpl implements FileStorageService {
@@ -32,7 +26,7 @@ public class FileStorageServiceImpl implements FileStorageService {
      * @Date: 2022/10/22 15:32
      */
     @Override
-    public String uploadFile(@NotNull MultipartFile file) {
+    public String uploadFile(MultipartFile file) {
         if (file == null){
             throw new RuntimeException("file not exist");
         }

@@ -6,8 +6,8 @@ import com.petsAdoption.pojo.ResultCode;
 
 import com.petsAdoption.user.config.TokenDecode;
 import com.petsAdoption.user.pojo.User;
-import com.petsAdoption.user.service.MoneyFreezeService;
 import com.petsAdoption.user.serivce.UserService;
+import com.petsAdoption.user.service.MoneyFreezeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;

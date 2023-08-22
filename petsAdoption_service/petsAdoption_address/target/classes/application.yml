@@ -6,14 +6,14 @@ spring:
     name: address
 
   datasource:
-    password: 20010519Smxy
+    password: w0519
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://43.142.28.107:3306/petsAdoption_address?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://192.168.124.71:3306/petsAdoption_address?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
 
   cloud:
     nacos:
-      server-addr: 43.142.28.107:8848
+      server-addr: 192.168.124.71:8848
       username: nacos
       password: nacos
 
@@ -33,7 +33,7 @@ dubbo:
   registry:
     #dubbo服务注册端口，注册中心服务器地址，如果地址没有端口缺省为9090，同一集群内的多个地址用逗号分隔，如：ip:port,ip:port
     #其中前缀spring-cloud说明：挂载到 Spring Cloud注册中心
-    address: spring-cloud://43.142.28.107:8848
+    address: spring-cloud://192.168.124.71:8848
   cloud:
     subscribed-services: user,pets  # 订阅的提供者名称
   consumer:

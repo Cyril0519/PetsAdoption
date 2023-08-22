@@ -154,7 +154,7 @@ public class AuthController {
     }
     // 将令牌的短标识jti存入cookie
     private void saveJtiToCookie(String jti, HttpServletResponse response) {
-        CookieUtil.addCookie(response, cookieDomain, "/", "uid", jti, cookieMaxAge, false);
+        CookieUtil.addCookie(response, "/", "uid", jti, cookieMaxAge, false);
     }
 
     //生成验证码图片
